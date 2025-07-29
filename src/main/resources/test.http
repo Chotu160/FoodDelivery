@@ -1,0 +1,62 @@
+### Add Burger
+POST http://localhost:8080/fooditems
+Content-Type: application/json
+
+{
+  "foodItemName": "Burger",
+  "price": 150,
+  "restaurantId": 101
+}
+
+### Add Pizza
+POST http://localhost:8080/fooditems
+Content-Type: application/json
+
+{
+  "foodItemName": "Pizza",
+  "price": 200,
+  "restaurantId": 102
+}
+
+### Add Momos
+POST http://localhost:8080/fooditems
+Content-Type: application/json
+
+{
+  "foodItemName": "Momos",
+  "price": 120,
+  "restaurantId": 103
+}
+
+### Add Sandwich
+POST http://localhost:8080/fooditems
+Content-Type: application/json
+
+{
+  "foodItemName": "Sandwich",
+  "price": 90,
+  "restaurantId": 104
+}
+
+### Add Fried Rice
+POST http://localhost:8080/fooditems
+Content-Type: application/json
+
+{
+  "foodItemName": "Fried Rice",
+  "price": 170,
+  "restaurantId": 105
+}
+
+### Get all food items
+GET http://localhost:8080/fooditems
+
+### Place a new order
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "customerName": "Sheik",
+  "foodItemId": 1,
+  "quantity": 2
+}
