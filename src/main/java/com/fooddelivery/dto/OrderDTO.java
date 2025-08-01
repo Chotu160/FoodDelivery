@@ -9,6 +9,9 @@ public class OrderDTO {
     private int quantity;
     private double totalAmount;
 
+    public OrderDTO() {
+    }
+
     public OrderDTO(Long orderId, String customerName, String foodItemName, double price, int quantity) {
         this.orderId = orderId;
         this.customerName = customerName;
@@ -19,15 +22,51 @@ public class OrderDTO {
     }
 
     // Getters and Setters
-    public Long getOrderId() { return orderId; }
+    public Long getOrderId() {
+        return orderId;
+    }
 
-    public String getCustomerName() { return customerName; }
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
 
-    public String getFoodItemName() { return foodItemName; }
+    public String getCustomerName() {
+        return customerName;
+    }
 
-    public double getPrice() { return price; }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
-    public int getQuantity() { return quantity; }
+    public String getFoodItemName() {
+        return foodItemName;
+    }
 
-    public double getTotalAmount() { return totalAmount; }
+    public void setFoodItemName(String foodItemName) {
+        this.foodItemName = foodItemName;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 }

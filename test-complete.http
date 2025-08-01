@@ -1,0 +1,152 @@
+### ===========================================
+### FOOD DELIVERY API - COMPLETE TEST SUITE
+### ===========================================
+
+### 1. LOGIN TO GET JWT TOKEN
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "username": "sheik",
+  "password": "password"
+}
+
+### 2. REGISTER NEW USER
+POST http://localhost:8081/users/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### ===========================================
+### RESTAURANT MANAGEMENT (ADMIN ONLY)
+### ===========================================
+
+### 3. ADD RESTAURANT (Admin only)
+POST http://localhost:8081/restaurants
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+{
+  "name": "Pizza Palace"
+}
+
+### 4. GET ALL RESTAURANTS
+GET http://localhost:8081/restaurants
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 5. GET SINGLE RESTAURANT
+GET http://localhost:8081/restaurants/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 6. UPDATE RESTAURANT (Admin only)
+PUT http://localhost:8081/restaurants/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+{
+  "name": "Supreme Pizza Palace"
+}
+
+### ===========================================
+### FOOD ITEM MANAGEMENT
+### ===========================================
+
+### 7. ADD FOOD ITEM (Admin only)
+POST http://localhost:8081/fooditems
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+{
+  "foodItemName": "Margherita Pizza",
+  "price": 12.99,
+  "restaurantId": 1
+}
+
+### 8. GET ALL FOOD ITEMS
+GET http://localhost:8081/fooditems
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 9. GET SINGLE FOOD ITEM
+GET http://localhost:8081/fooditems/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 10. UPDATE FOOD ITEM (Admin only)
+PUT http://localhost:8081/fooditems/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+{
+  "foodItemName": "Supreme Margherita Pizza",
+  "price": 15.99,
+  "restaurantId": 1
+}
+
+### 11. DELETE FOOD ITEM (Admin only)
+DELETE http://localhost:8081/fooditems/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### ===========================================
+### ORDER MANAGEMENT
+### ===========================================
+
+### 12. PLACE ORDER (Admin only)
+POST http://localhost:8081/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+{
+  "customerName": "John Doe",
+  "foodItemId": 1,
+  "quantity": 2
+}
+
+### 13. GET ALL ORDERS
+GET http://localhost:8081/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 14. GET SINGLE ORDER
+GET http://localhost:8081/orders/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 15. UPDATE ORDER STATUS (Admin only)
+PUT http://localhost:8081/orders/1/status?status=CONFIRMED
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 16. UPDATE ORDER STATUS TO PREPARING
+PUT http://localhost:8081/orders/1/status?status=PREPARING
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 17. UPDATE ORDER STATUS TO DELIVERED
+PUT http://localhost:8081/orders/1/status?status=DELIVERED
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### 18. CANCEL ORDER (Admin only)
+DELETE http://localhost:8081/orders/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+### ===========================================
+### ERROR TESTING
+### ===========================================
+
+### 19. TEST VALIDATION ERROR (Invalid food item)
+POST http://localhost:8081/fooditems
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpayIsImlhdCI6MTc1NDA1MjcyOSwiZXhwIjoxNzU0MDg4NzI5fQ.KsAfgUBqTd5RCUqQCFBWWb24yu21mB3oUhB8IzwHZsQ
+
+{
+  "foodItemName": "",
+  "price": -5.0,
+  "restaurantId": 0
+}
+
+### 20. TEST UNAUTHORIZED ACCESS (No token)
+GET http://localhost:8081/fooditems
+
+### ===========================================
+### AVAILABLE ORDER STATUSES:
+### PENDING, CONFIRMED, PREPARING, OUT_FOR_DELIVERY, DELIVERED, CANCELLED
+### ===========================================
